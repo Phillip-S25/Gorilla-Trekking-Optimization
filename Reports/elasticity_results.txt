@@ -1,0 +1,24 @@
+======================================================================
+PRICE ELASTICITY ESTIMATION RESULTS
+======================================================================
+
+OVERALL ELASTICITY (Cross-Country Analysis)
+----------------------------------------------------------------------
+Elasticity Coefficient: 1.058
+R-squared: 0.914
+Interpretation: Demand is inelastic
+
+SEGMENT-SPECIFIC ELASTICITIES
+----------------------------------------------------------------------
+Foreign_NonResident      :  -0.30  (Inelastic)
+Foreign_Resident         :  -0.60  (Moderately Elastic)
+Rest_of_Africa           :  -1.20  (Elastic)
+East_African             :  -1.80  (Highly Elastic)
+
+
+KEY INSIGHTS:
+----------------------------------------------------------------------
+• Foreign non-residents have inelastic demand → Can increase prices
+• East African citizens are price-sensitive → Need affordable pricing
+• Differentiated pricing strategy can maximize revenue across segments
+• Peak season price increases will have minimal impact on foreign demand

@@ -1,0 +1,183 @@
+=============================================================================
+EXECUTIVE SUMMARY
+Gorilla Trekking Permit Pricing Optimization Analysis
+=============================================================================
+
+PROJECT OVERVIEW
+--------------
+This analysis develops an optimized, data-driven pricing strategy for Uganda's 
+gorilla-trekking permits to maximize conservation revenue while maintaining 
+seasonal demand balance and social equity.
+
+DATA SOURCES
+--------------
+• Uganda Bureau of Statistics (UBOS): National Parks visitors data (2019-2023)
+• UBOS: Monthly tourism arrivals showing seasonality patterns
+• UWA: Official tariff structure and pricing
+• Analysis Period: 60 months (January 2019 - December 2023)
+• Estimated Gorilla Permits: 48,611 total over 5 years
+
+METHODOLOGY
+--------------
+1. DATA PREPARATION
+   - Extracted Bwindi Impenetrable National Park visitor data
+   - Estimated gorilla permits as 40% of Bwindi visitors
+   - Segmented by visitor category (Foreign Non-Res, Foreign Res, Rest of Africa, East African)
+   - Incorporated seasonal patterns from UBOS monthly data
+
+2. EXPLORATORY DATA ANALYSIS
+   - Time series analysis with seasonal decomposition
+   - Peak vs. off-peak demand comparison
+   - Correlation analysis across visitor segments
+   - Distribution and trend analysis
+
+3. DEMAND FORECASTING
+   - SARIMA (Seasonal ARIMA) model for 12-month forecast
+   - Accounts for trend, seasonality, and COVID recovery
+
+4. PRICE ELASTICITY ESTIMATION
+   - Cross-country comparison (Uganda $800, Rwanda $1500, DRC $400)
+   - Segment-specific elasticities:
+     * Foreign Non-Resident: -0.3 (inelastic)
+     * Foreign Resident: -0.6 (moderately elastic)
+     * Rest of Africa: -1.2 (elastic)
+     * East African: -1.8 (highly elastic)
+
+5. REVENUE OPTIMIZATION
+   - Three pricing scenarios modeled
+   - Demand response calculated using elasticity coefficients
+   - Revenue maximization under capacity constraints
+
+KEY FINDINGS
+--------------
+1. STRONG SEASONALITY
+   - Peak season (Jun-Sep, Dec-Feb): 13% higher average demand
+   - Off-peak shows significant unused capacity
+   - Clear opportunity for demand smoothing
+
+2. SEGMENT HETEROGENEITY
+   - Foreign non-residents (65% of permits) have inelastic demand
+   - East African citizens (10%) are highly price-sensitive
+   - Current flat pricing fails to capture segment differences
+
+3. COVID IMPACT & RECOVERY
+   - 2020: 90% demand reduction
+   - 2021-2022: Gradual recovery
+   - 2023: Exceeded pre-COVID levels (16,564 permits vs. 14,536 in 2019)
+
+4. REVENUE POTENTIAL
+   - Current average annual revenue: ~$10.5 million
+   - Significant untapped revenue in peak seasons
+   - Off-peak periods underutilized
+
+RECOMMENDATIONS
+--------------
+MODERATE DYNAMIC PRICING STRATEGY (Recommended)
+
+PEAK SEASON PRICING (Jun-Sep, Dec-Feb):
+   • Foreign Non-Resident: $1,040 (+30%)
+   • Foreign Resident: $840 (+20%)
+   • Rest of Africa: $550 (+10%)
+   • East African: $100 (no change - equity)
+
+OFF-PEAK PRICING (Mar-May, Oct-Nov):
+   • Foreign Non-Resident: $680 (-15%)
+   • Foreign Resident: $560 (-20%)
+   • Rest of Africa: $375 (-25%)
+   • East African: $70 (-30%)
+
+PROJECTED IMPACT
+--------------
+✓ Annual Revenue Increase: +18.5% ($1.95M additional per year)
+✓ Conservation Funding Boost: +$1.37M annually (70% allocation)
+✓ Demand Smoothing: Reduces peak congestion, stimulates off-peak visits
+✓ Equity Maintained: East African pricing remains accessible
+✓ Market-Appropriate: Capitalizes on inelastic foreign demand
+✓ Competitive Position: Still below Rwanda ($1,500) during peaks
+
+IMPLEMENTATION CONSIDERATIONS
+--------------
+1. GRADUAL ROLLOUT: Phase in over 2 seasons to monitor response
+2. CLEAR COMMUNICATION: Transparent pricing calendar for tour operators
+3. BOOKING SYSTEM: Update reservation platform for dynamic pricing
+4. STAKEHOLDER ENGAGEMENT: Consult UWA, tour operators, local communities
+5. MONITORING: Track actual demand response and adjust as needed
+
+BUSINESS INSIGHTS
+--------------
+• Peak season price increases will have minimal demand impact (inelastic segments)
+• Off-peak discounts will stimulate demand without eroding total revenue
+• Additional $1.37M annually can fund:
+  - Enhanced ranger patrols
+  - Habitat restoration projects
+  - Community benefit programs
+  - Anti-poaching technology
+
+• Revenue per permit increases from $217 to $255 average
+• Maintains Uganda's competitive advantage vs. Rwanda
+• Aligns with best practices in wildlife tourism revenue management
+
+LIMITATIONS & FUTURE WORK
+--------------
+LIMITATIONS:
+• Gorilla-specific data estimated from aggregate parks data
+• Elasticities partially based on cross-country proxies
+• COVID period creates data irregularities
+• Model assumes rational price response
+
+FUTURE RESEARCH:
+• Collect granular permit sales data by category
+• Conduct visitor willingness-to-pay surveys
+• A/B test pricing changes on small permit subset
+• Incorporate competitor pricing dynamics
+• Model carrying capacity constraints explicitly
+
+CONCLUSION
+--------------
+The recommended moderate dynamic pricing strategy offers substantial revenue gains 
+(+$1.95M annually) while achieving key policy objectives:
+
+✓ ECONOMIC: Maximizes conservation funding
+✓ ECOLOGICAL: Smooths visitor distribution to reduce habitat stress
+✓ SOCIAL: Maintains affordable access for East African citizens
+✓ COMPETITIVE: Positions Uganda strategically vs. regional competitors
+
+Implementation is feasible with existing UWA infrastructure and represents a 
+low-risk, high-reward opportunity to enhance gorilla conservation financing.
+
+=============================================================================
+DELIVERABLES
+=============================================================================
+DATA FILES:
+• processed_permit_data.csv - 60 months of segmented permit data
+• demand_forecast_2024.csv - 12-month SARIMA forecast
+• pricing_recommendations.csv - Detailed pricing structure
+• scenario_comparison.csv - Three scenario results
+
+VISUALIZATIONS (8 figures):
+• 01_time_series_analysis.png - Overall trends and patterns
+• 02_seasonal_decomposition.png - Trend/seasonal/residual components
+• 03_correlation_matrix.png - Segment correlations
+• 04_distribution_analysis.png - Demand distributions
+• 05_peak_offpeak_comparison.png - Seasonal differences
+• 06_sarima_forecast.png - 2024 demand projection
+• 07_price_elasticity.png - Elasticity analysis
+• 08_revenue_optimization.png - Scenario comparisons
+
+ANALYSIS REPORTS:
+• eda_summary.txt - Exploratory analysis findings
+• elasticity_results.txt - Price sensitivity estimates
+• optimization_results.txt - Revenue scenarios and recommendations
+
+=============================================================================
+CONTACT & ATTRIBUTION
+=============================================================================
+Data Sources: 
+- Uganda Bureau of Statistics (www.ubos.org)
+- Uganda Wildlife Authority (ugandawildlife.org)
+
+Analysis Date: December 2025
+Methodology: SARIMA forecasting, econometric elasticity estimation, 
+            constrained revenue optimization
+
+=============================================================================

@@ -1,0 +1,274 @@
+======================================================================
+GORILLA TREKKING PERMIT PRICING OPTIMIZATION ANALYSIS
+======================================================================
+
+[1] LOADING DATA...
+✓ National Parks Visitors data loaded
+  Shape: (17, 8)
+✓ Monthly Tourism Arrivals data loaded
+  Shape: (16, 7)
+✓ Visitor Arrivals data loaded
+  Shape: (7, 4)
+
+[2] EXPLORING DATA STRUCTURE...
+
+--- National Parks Data Preview ---
+  Visitors to National Parks (Citizens and Foreigners), 2019 – 2023  ...         Unnamed: 7
+0                                    National Parks                  ...  %Change 2022-2023
+1                  Bwindi Impenetrable National Park                 ...              26.92
+2                       Kidepo Valley Nattional Park                 ...             -23.43
+3                      Murchison Falls National Park                 ...              -3.62
+4                      Queen Elizabeth National Park                 ...              -1.44
+5                               Kibale National Park                 ...               20.5
+6                          Mount Elgon National Park                 ...              -8.99
+7                   Rwenzori Montains National Park                  ...              32.96
+8                              Semliki National Park                 ...              16.83
+9                           Lake Mburo National Park                 ...              29.54
+
+[10 rows x 8 columns]
+
+Columns: ['Visitors to National Parks (Citizens and Foreigners), 2019 – 2023', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6', 'Unnamed: 7']
+
+--- Monthly Data Preview ---
+  Total Arrivals and Departures by Month, 2023 (‘000s)  ... Unnamed: 6
+0                                                NaN    ...        NaN
+1                                              Month    ...      Total
+2                                            January    ...        144
+3                                           February    ...        136
+4                                              March    ...        139
+5                                              April    ...        138
+6                                                May    ...        149
+7                                               June    ...        152
+8                                               July    ...        172
+9                                             August    ...        192
+
+[10 rows x 7 columns]
+
+Columns: ['Total Arrivals and Departures by Month, 2023 (‘000s)', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5', 'Unnamed: 6']
+
+--- Arrivals Data Preview ---
+        Visitor Arrivals and Departures, 2019 – 2023  ...                    Unnamed: 3
+0                                               Year  ...  Tourists Net Movement (000s)
+1                                              2019*  ...                           -89
+2                                               2020  ...                           -12
+3                                               2021  ...                           -22
+4                                               2022  ...                            24
+5                                               2023  ...                            46
+6  Source: Uganda Bureau of Statistics. *2019 and...  ...                           NaN
+
+[7 rows x 4 columns]
+
+Columns: ['Visitor Arrivals and Departures, 2019 – 2023', 'Unnamed: 1', 'Unnamed: 2', 'Unnamed: 3']
+
+======================================================================
+DATA EXPLORATION COMPLETE - Ready for analysis
+======================================================================
+
+[3] CLEANING AND PREPARING DATA...
+✓ National Parks data cleaned
+  Parks: 15
+✓ Bwindi data extracted: 41412 visitors in 2023
+✓ Monthly seasonality data cleaned
+  Months: 14
+✓ Annual arrivals data cleaned
+
+[4] CREATING GORILLA-SPECIFIC ESTIMATES...
+Estimated Gorilla Permits by Year:
+  2019: 14,536 permits
+  2020: 3,931 permits
+  2021: 6,294 permits
+  2022: 13,051 permits
+  2023: 16,564 permits
+
+[5] CREATING MONTHLY TIME SERIES...
+✓ Seasonality indices calculated
+✓ Created 60 months of time series data
+  Period: 2019-01 to 2023-12
+  Total permits (all years): 48,611
+
+[6] SEGMENTING BY VISITOR CATEGORY...
+✓ Visitor segments created:
+  Foreign_NonResident: 31,571 permits (65%)
+  Foreign_Resident: 4,832 permits (10%)
+  Rest_of_Africa: 7,263 permits (15%)
+  East_African: 4,832 permits (10%)
+
+✓ Data saved to: processed_permit_data.csv
+
+======================================================================
+DATA PREPARATION COMPLETE
+======================================================================
+======================================================================
+EXPLORATORY DATA ANALYSIS & MODELING
+======================================================================
+
+✓ Loaded 60 months of data
+  Period: 2019-01-01 00:00:00 to 2023-12-01 00:00:00
+
+======================================================================
+PART 1: EXPLORATORY DATA ANALYSIS
+======================================================================
+
+[1.1] SUMMARY STATISTICS
+----------------------------------------------------------------------
+
+Monthly Permit Sales by Segment:
+       Foreign_NonResident  Foreign_Resident  Rest_of_Africa  East_African
+count                 60.0              60.0            60.0          60.0
+mean                 526.0              81.0           121.0          81.0
+std                  349.0              54.0            80.0          54.0
+min                   18.0               2.0             4.0           2.0
+25%                  189.0              29.0            43.0          29.0
+50%                  655.0             100.0           151.0         100.0
+75%                  809.0             124.0           186.0         124.0
+max                 1140.0             175.0           263.0         175.0
+
+
+Annual Totals:
+           Foreign_NonResident  Foreign_Resident  ...  East_African  Total_Permits
+Year_Only                                         ...                             
+2019                      9339              1432  ...          1432          14374
+2020                       590                86  ...            86            912
+2021                      2467               375  ...           375           3804
+2022                      8470              1298  ...          1298          13041
+2023                     10705              1641  ...          1641          16480
+
+[5 rows x 5 columns]
+
+[1.2] CREATING TIME SERIES VISUALIZATIONS...
+✓ Saved: 01_time_series_analysis.png
+
+[1.3] SEASONAL DECOMPOSITION...
+✓ Saved: 02_seasonal_decomposition.png
+
+[1.4] CORRELATION ANALYSIS...
+✓ Saved: 03_correlation_matrix.png
+
+[1.5] DISTRIBUTION ANALYSIS...
+✓ Saved: 04_distribution_analysis.png
+
+[1.6] PEAK VS OFF-PEAK ANALYSIS...
+
+Average Monthly Permits by Season:
+          Total_Permits  Foreign_NonResident  ...  Rest_of_Africa  East_African
+Season                                        ...                              
+Off-Peak          753.0                489.0  ...           113.0          75.0
+Peak              851.0                553.0  ...           127.0          85.0
+
+[2 rows x 5 columns]
+✓ Saved: 05_peak_offpeak_comparison.png
+
+======================================================================
+EXPLORATORY DATA ANALYSIS COMPLETE
+======================================================================
+✓ Saved: eda_summary.txt
+======================================================================
+PART 2: DEMAND FORECASTING & ELASTICITY ESTIMATION
+======================================================================
+
+[2.1] SEASONAL ARIMA FORECASTING...
+Training data: 44 months
+✓ SARIMA model fitted successfully
+  AIC: 234.81
+  BIC: 238.97
+✓ Saved: 06_sarima_forecast.png
+✓ Saved: demand_forecast_2024.csv
+
+[2.2] PRICE ELASTICITY ESTIMATION...
+
+Cross-Country Price-Demand Data:
+  Country  Price  Annual_Permits
+0     DRC    400            5000
+1  Uganda    800           15000
+2  Rwanda   1500           20000
+
+✓ Price Elasticity of Demand: 1.058
+  (Price increase of 1% → Demand change of 1.06%)
+  R-squared: 0.914
+
+✓ Segment-Specific Elasticities:
+  Foreign_NonResident: -0.30
+  Foreign_Resident: -0.60
+  Rest_of_Africa: -1.20
+  East_African: -1.80
+✓ Saved: 07_price_elasticity.png
+✓ Saved: elasticity_results.txt
+
+======================================================================
+FORECASTING & ELASTICITY ANALYSIS COMPLETE
+======================================================================
+======================================================================
+PART 3: REVENUE OPTIMIZATION & SCENARIO ANALYSIS
+======================================================================
+
+[3.1] BASELINE REVENUE (Current Pricing)...
+✓ Current Average Monthly Revenue: $545,898
+✓ Current Average Annual Revenue: $6,550,780
+
+[3.2] DEVELOPING OPTIMIZED PRICING SCENARIOS...
+
+[3.3] SIMULATING SCENARIOS...
+
+  Processing: Current Pricing
+
+  Processing: Moderate Dynamic Pricing
+
+  Processing: Aggressive Pricing
+
+======================================================================
+SCENARIO COMPARISON RESULTS
+======================================================================
+                Scenario  Annual_Revenue  Monthly_Revenue  Total_Permits_5yr  Revenue_vs_Baseline
+         Current Pricing      6550780.00    545898.333333          48498.000             0.000000
+Moderate Dynamic Pricing      6876005.20    573000.433333          48496.875             4.964679
+      Aggressive Pricing      7215754.24    601312.853333          46801.890            10.151070
+
+[3.4] CREATING VISUALIZATIONS...
+Traceback (most recent call last):
+  File "/home/doname14/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3812, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 167, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 196, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7088, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 7096, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'index'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/mnt/c/Users/Don/Desktop/project/Phillip/revenue_optimization.py", line 202, in <module>
+    axes[1,0].plot(df['index'], df['Total_Revenue']/1000, 
+  File "/home/doname14/.local/lib/python3.10/site-packages/pandas/core/frame.py", line 4113, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/doname14/.local/lib/python3.10/site-packages/pandas/core/indexes/base.py", line 3819, in get_loc
+    raise KeyError(key) from err
+KeyError: 'index'
+======================================================================
+GORILLA PERMIT PRICING OPTIMIZATION - COMPLETE ANALYSIS
+======================================================================
+
+[1/4] Running: Data Loading & Preparation
+----------------------------------------------------------------------
+✓ Data Loading & Preparation completed successfully
+
+[2/4] Running: Exploratory Data Analysis
+----------------------------------------------------------------------
+✓ Exploratory Data Analysis completed successfully
+
+[3/4] Running: Forecasting & Elasticity
+----------------------------------------------------------------------
+✓ Forecasting & Elasticity completed successfully
+
+[4/4] Running: Revenue Optimization
+----------------------------------------------------------------------
+✗ Error in revenue_optimization.py: Command '['/usr/bin/python3', 'revenue_optimization.py']' returned non-zero exit status 1.
+
+======================================================================
+COMPLETE ANALYSIS FINISHED
+======================================================================
+
+Generated Files:
+  Data: processed_permit_data.csv, demand_forecast_2024.csv
+  Visualizations: 01-08_*.png (8 figures)
+  Results: eda_summary.txt, elasticity_results.txt, optimization_results.txt
+  Recommendations: pricing_recommendations.csv, scenario_comparison.csv

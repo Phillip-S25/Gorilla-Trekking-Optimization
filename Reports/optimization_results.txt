@@ -1,0 +1,32 @@
+======================================================================
+REVENUE OPTIMIZATION RESULTS
+======================================================================
+
+BASELINE (CURRENT PRICING)
+----------------------------------------------------------------------
+Average Annual Revenue:  $6,550,780
+Average Monthly Revenue: $545,898
+
+SCENARIO COMPARISON
+----------------------------------------------------------------------
+                Scenario  Annual_Revenue  Monthly_Revenue  Total_Permits_5yr  Revenue_vs_Baseline
+         Current Pricing      6550780.00    545898.333333          48498.000             0.000000
+Moderate Dynamic Pricing      6876005.20    573000.433333          48496.875             4.964679
+      Aggressive Pricing      7215754.24    601312.853333          46801.890            10.151070
+
+RECOMMENDED PRICING STRATEGY (Moderate Dynamic Pricing)
+----------------------------------------------------------------------
+            Segment  Current_Price  Peak_Price  OffPeak_Price  Peak_Change  OffPeak_Change
+Foreign NonResident            800      1040.0          680.0         30.0           -15.0
+   Foreign Resident            700       840.0          560.0         20.0           -20.0
+     Rest of Africa            500       550.0          375.0         10.0           -25.0
+       East African            100       100.0           70.0          0.0           -30.0
+
+KEY BENEFITS
+----------------------------------------------------------------------
+• Additional Annual Revenue: $325,225 (+5.0%)
+• Conservation funding increase: $227,658 (assuming 70% allocation)
+• Smoothed seasonal demand distribution
+• Maintained affordability for East African citizens
+• Capitalized on inelastic foreign demand during peak seasons
+• Stimulated off-peak tourism through strategic discounts
